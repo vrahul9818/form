@@ -16,7 +16,7 @@ const VehicleTypeStep = ({ nextStep, prevStep, handleDataChange, formData }) => 
   useEffect(() => {
     const fetchVehicleTypes = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/getvehicles?wheels=${formData.wheels}`);
+        const response = await fetch(`https://form-backend-ybco.onrender.com/api/getvehicles?wheels=${formData.wheels}`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -98,7 +98,7 @@ const VehicleTypeStep = ({ nextStep, prevStep, handleDataChange, formData }) => 
                   <CardMedia
                     component="img"
                     height="200"
-                    image={vehicleImages[type.type] || 'path/to/fallback/image.png'} // Use fallback if needed
+                    image={vehicleImages[type.type] } // Use fallback if needed
                     alt={type.model}
                     className="vehicle-type-card-img"
                   />
